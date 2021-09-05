@@ -1,7 +1,9 @@
-const Buttons = () => {
+import style from './buttons.module.css';
+
+const Buttons = ({text}) => {
   return (
-    <button>
-      test
+    <button className={`btn btn-light px-3 py-2 my-2 fw-bold ${style.landing_btns} ${style.glow_button}`}>
+      {text}
     </button>
   )
 }
