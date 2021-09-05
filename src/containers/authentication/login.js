@@ -1,8 +1,12 @@
-const login = () => {
+import Common from '../../components/authentication/common'
+import styles from './auth.module.css'
+
+const Login = () => {
   return (
     <>
-  <div>login</div>  </>
+      <Common />
+    </>
   )
 }
 
-export default login;
+export default Login;

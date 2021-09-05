@@ -3,7 +3,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 // import Signup from './containers/session/signup';
 import Home from './containers/home/home'
-import login from './containers/authentication/login';
+import Login from './containers/authentication/login';
 // import View from './containers/view/view';
 // import store from './store/store';
 
@@ -12,7 +12,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
-        <Route exact path ="/login" component={login}/>
+        <Route exact path ="/login" component={Login}/>
         <Route path="*" component={Error} />
       </Switch>
     </main>

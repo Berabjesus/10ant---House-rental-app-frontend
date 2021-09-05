@@ -1,4 +1,12 @@
-figure {
+
+
+.section {
+  color: #FBFCEB;
+  position: relative;
+  background-color: #F8F8F8;
+}
+
+.figure {
   position: absolute;
   z-index: 1;
   bottom: -3px;
@@ -8,12 +16,7 @@ figure {
   background: url('../../assets/image/home2.png') right bottom / contain no-repeat ;
   box-shadow: inset 40px 20px 100px 1px #f8f8f8a1;
   border-top-left-radius: 45%;
-}
-
-.section {
-  color: #FBFCEB;
-  position: relative;
-  background-color: #F8F8F8;
+  transition: all 3s linear;
 }
 
 .logo {
