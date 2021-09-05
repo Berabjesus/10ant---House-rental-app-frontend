@@ -1,15 +1,19 @@
 .section {
+  color: #FBFCEB;
   position: relative;
   background-color: #0b1a3b;
 }
 
 figure {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   right: 0;
   min-height: 800px;
   width: 700px;
-  background: #0b1a3b url('../../assets/image/home.png') right bottom / contain no-repeat ;
+  background: url('../../assets/image/home.png') right bottom / contain no-repeat ;
+  /* box-shadow: inset 100px 300px 100px 40px #0b1a3be1; */
+  border-top-left-radius: 35%;
 }
 
 .custom_border {

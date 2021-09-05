@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Meddon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 /*
 *  CSS TABLE OF CONTENTS
 *
@@ -6,6 +7,14 @@
 */
 .vh_100 {
   height: 100vh;
+}
+
+.font_logo {
+  font-family: 'Meddon', cursive;
+}
+
+.font_os {
+  font-family:  'Open Sans', sans-serif;;
 }
 
 body {
