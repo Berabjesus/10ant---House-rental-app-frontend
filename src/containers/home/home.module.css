@@ -1,0 +1,30 @@
+.section {
+  position: relative;
+  background-color: #0b1a3b;
+}
+
+figure {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-height: 800px;
+  width: 700px;
+  background: #0b1a3b url('../../assets/image/home.png') right bottom / contain no-repeat ;
+}
+
+.custom_border {
+  border: 3px dashed red;
+}
+
+@media screen and (max-width: 768px) {
+  figure {
+    background-position: right bottom;
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  figure {
+    width: 600px;
+  }
+}
