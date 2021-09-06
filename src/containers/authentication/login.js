@@ -1,10 +1,9 @@
-import Common from '../../components/authentication/common'
-import styles from './auth.module.css'
+import Common from './common'
 
 const Login = () => {
   return (
     <>
-      <Common />
+      <Common status="login"/>
     </>
   )
 }

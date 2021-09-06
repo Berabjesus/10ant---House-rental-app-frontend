@@ -3,7 +3,7 @@ import styles from './home.module.css';
 
 const home = () => {
   return (
-    <section className={`vh_100 pt-xl-5 ps-md-5 fade_in ${styles.section}`}>
+    <section className={`vh-100 pt-xl-5 ps-md-5 fade_in ${styles.section}`}>
       <figure className={`mb-0 ${styles.figure}`}></figure>
       <div className='d-flex flex-column px-5 pt-5 col-12 col-md-6'>
         <div className="pb-2 mb-2 ">

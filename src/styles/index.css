@@ -17,12 +17,21 @@ body {
   overflow: hidden;
 }
 
+
 .debug_border {
   border: 3px dashed red;
 }
 
 .vh_100 {
   height: 100vh;
+}
+
+.z_index_max {
+  z-index: 999;
+}
+
+.z_index_min {
+  z-index: -1;
 }
 
 .font_logo {

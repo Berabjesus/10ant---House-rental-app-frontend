@@ -16,7 +16,7 @@
   background: url('../../assets/image/home2.png') right bottom / contain no-repeat ;
   box-shadow: inset 40px 20px 100px 1px #f8f8f8a1;
   border-top-left-radius: 45%;
-  transition: all 3s linear;
+  transition: all 0.5s linear;
 }
 
 .logo {
@@ -34,13 +34,13 @@
 }
 
 @media screen and (max-width: 992px) {
-  figure {
+  .figure {
     max-width: 500px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  figure {
+  .figure {
     max-width: 350px;
   }
 
