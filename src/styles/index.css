@@ -101,6 +101,11 @@ body {
   transform: scale(1.02);
 }
 
+.section {
+  background: linear-gradient(90deg, #f8f8f8 21px, transparent 1%) center, linear-gradient(#f8f8f8 21px, transparent 1%) center, #000000af;
+  background-size: 23px 23px;
+}
+
 /*
 *
 *  Animations
