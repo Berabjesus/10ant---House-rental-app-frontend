@@ -1,10 +1,11 @@
 import Common from '../../components/authentication/common'
 
 const Login = () => {
+  const handleClick = () => {
+    console.log('login clikced ');
+  }
   return (
-    <>
-      <Common status="login"/>
-    </>
+    <Common clickhandler = {handleClick} />
   )
 }
 
