@@ -1,4 +1,4 @@
-import Common from '../../components/authentication/common'
+import Common from './common'
 
 const Login = () => {
   const handleClick = () => {

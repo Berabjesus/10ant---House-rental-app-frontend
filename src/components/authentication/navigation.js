@@ -7,7 +7,7 @@ const Navigation = () => {
   const history = useHistory()
 
   return (
-          <div className='d-flex justify-content-between position-absolute mt-4 px-2 w-100'>
+          <div className='d-flex justify-content-between position-absolute mt-4 px-3 w-100'>
             <button className="bg-transparent" type='button' onClick = {(e) => {
                 history.go(-1)
               }}>
