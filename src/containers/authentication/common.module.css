@@ -16,11 +16,23 @@
   width: 80%;
 }
 
-.signup_menu_container {
+.signup_menu_anchor {
   height: 100%;
 }
 
-.menu {
+.menu_text_container {
+  transition: all 0.2s linear;
+}
+
+.menu_text_container:hover {
+  background: rgba(0, 0, 0, 0.863);
+}
+
+.menu_text_container:hover > * {
+  color: white;
+}
+
+.menu_items {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -39,7 +51,7 @@
     width: 90vw;
   }
 
-  .signup_menu_container {
+  .signup_menu_anchor {
     height: 50%;
   }
 }
