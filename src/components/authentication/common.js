@@ -20,7 +20,7 @@ const Common = ({clickhandler}) => {
         <input className="form-control borderless_inputs mb-2" type="email" placeholder="email@example.com" />
         <input className="form-control borderless_inputs mb-2" type="password" placeholder="Password" />
         <input className="form-control borderless_inputs mb-2" type="password" placeholder="Password Confrimation" />
-        <input className="form-control borderless_inputs mb-2" type="date"/>
+        <input className="form-control borderless_inputs mb-2" type="text" placeholder="Date of birth" onFocus={(e)=> e.target.type = 'date'} onBlur={(e)=> e.target.type = 'text'} />
       </div>
     </>;
   } else {
@@ -49,7 +49,7 @@ const Common = ({clickhandler}) => {
             }
 
             <div className="align-self-center d-flex flex-column align-items-center">
-              <button className= "btn btn-light px-3 py-2 my-2 me-3 fw-bold landing_btns glow_button" type="button" onClick = {clickhandler}>{ pathName.split('/')[0]}</button>
+              <button className= "btn btn-light px-3 py-2 my-2 fw-bold landing_btns glow_button" type="button" onClick = {clickhandler}>{ pathName.split('/')[0]}</button>
               <p>or</p>
               <Link to={`/${pathName === 'LOGIN' ? "signup" : "login"}`} className="text-decoration-underline">{pathName === 'LOGIN' ? "Sign Up" : "Login"}</Link>
             </div>
