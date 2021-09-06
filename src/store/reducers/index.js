@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-// import loginReducer from './loginReducer';
-// import signupReducer from './createWatchListReducer';
+import authentication from './authReducer';
 import statusReducer from './statusReducer';
 
 const rootReducer = combineReducers({
-  // session: loginReducer,
+  authentication,
   // signup: signupReducer,
   status : statusReducer
 });

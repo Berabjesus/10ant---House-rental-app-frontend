@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_SUCCESS, SET_ERRORS } from '../types';
+import { STATUS_LOADING, STATUS_SUCCESS, STATUS_ERRORS } from '../types';
 
 const initialState = {
   loading: false,
@@ -7,17 +7,17 @@ const initialState = {
 
 const statusReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_LOADING:
+    case STATUS_LOADING:
       return {
         ...state,
         loading: true,
       };
-    case SET_SUCCESS:
+    case STATUS_SUCCESS:
       return {
         loading: false,
         error: null,
       };
-    case SET_ERRORS:
+    case STATUS_ERRORS:
       return {
         loading: false,
         error: action.payload,

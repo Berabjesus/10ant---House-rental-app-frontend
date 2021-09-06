@@ -1,9 +1,13 @@
-// import { LOGIN_SUCCESS, LOGOUT } from '../types';
-import { setLoading, setSuccess, setErrors } from './statusAction';
+import { AUTH_SUCCESS } from '../types';
+import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 
+export const authSuccess = (data) => ({
+  type: AUTH_SUCCESS,
+  payload: data,
+});
 
 export const signup = (credentials) => (dispatch) => {
-  dispatch(setLoading());
+  dispatch(setStatusToLoading());
   fetch('http://localhost:3000/api/v1/users/', {
     method: 'POST',
     mode: 'cors',
@@ -18,12 +22,11 @@ export const signup = (credentials) => (dispatch) => {
       if (data.status === 'Error') {
         throw new Error(data.message);
       }
-      dispatch(setSuccess());
+      dispatch(authSuccess(data))
+      dispatch(setStatusToSuccess());
       console.log(data);
     })
     .catch((error) => {
-      dispatch(setErrors(error.message.split(',')));
-      // return error;
-      console.log(error);
+      dispatch(setStatusToError(error.message.split(',')));
     });
 };

@@ -1,14 +1,14 @@
-import { SET_LOADING, SET_ERRORS, SET_SUCCESS } from '../types';
+import { STATUS_LOADING, STATUS_ERRORS, STATUS_SUCCESS } from '../types';
 
-export const setLoading = () => ({
-  type: SET_LOADING,
+export const setStatusToLoading = () => ({
+  type: STATUS_LOADING,
 });
 
-export const setSuccess = () => ({
-  type: SET_SUCCESS,
+export const setStatusToSuccess = () => ({
+  type: STATUS_SUCCESS,
 });
 
-export const setErrors = (payload) => ({
-  type: SET_ERRORS,
+export const setStatusToError = (payload) => ({
+  type: STATUS_ERRORS,
   payload,
 });

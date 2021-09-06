@@ -24,7 +24,6 @@ const OwnerSignUp = () => {
     // use .replace(/\s/g, "") for email later
 
     dispatch(signup(credentials))
-    console.log(status.loading);
   }
 
   useEffect(() => {
