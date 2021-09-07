@@ -1,7 +1,5 @@
 
-
 .section {
-  color: #FBFCEB;
   position: relative;
   background-color: #F8F8F8;
 }
@@ -41,7 +39,7 @@
 
 @media screen and (max-width: 768px) {
   .figure {
-    max-width: 350px;
+    max-width: 450px;
   }
 
   .logo {

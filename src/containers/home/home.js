@@ -1,12 +1,14 @@
 import Buttons from '../../components/home/buttons'
+import DotBox from '../../components/common/dotBox'
 import {FixedLogo} from '../../components/common/logo'
 import styles from './home.module.css';
 
 const home = () => {
   return (
-    <section className={`vh-100 pt-xl-5 ps-md-5 fade_in ${styles.section}`}>
+    <section className={`vh-100 pt-xl-5 ps-md-5 fade_in  ${styles.section}`}>
+      <DotBox direction= 'right'/>
       <figure className={`mb-0 ${styles.figure}`}></figure>
-      <div className='d-flex flex-column px-5 pt-5 col-12 col-md-6'>
+      <div className=' d-flex flex-column px-5 pt-5 col-12 col-md-6 z_index_max'>
         <FixedLogo />
         <div className={`font_os text-black fw-bolder pt-2 ${styles.description}`}>
           <p >Find affordable deals on apartments and houses for rent. </p>
