@@ -20,12 +20,12 @@ const Header = () => {
 	<nav className="bg-black ">
 		<div className="container py-1">
 			<ul className=" d-flex justify-content-between text-white w-50 font_rw">
-				<li><a className="color1" href="#">Home</a></li>
-				<li className="grid"><a className="color2" href="#">Invoices</a>
+				<li><a className="pb-1 subheader_link" href="#">Home</a></li>
+				<li className="grid"><a className="pb-1 subheader_link" href="#">Invoices</a>
 				</li>
-				<li><a className="color4" href="#">About</a>
+				<li><a className="pb-1 subheader_link" href="#">About</a>
 				</li>
-				<li><a className="color5" href="#">Contact</a>
+				<li><a className="pb-1 subheader_link" href="#">Contact</a>
 				</li>
 			</ul>
 			<div className="clear"></div>
