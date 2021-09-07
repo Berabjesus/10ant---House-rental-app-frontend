@@ -1,10 +1,44 @@
 import { AUTH_SUCCESS } from '../types';
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
+import {setCredentials} from '../../helpers/tokenHandler'
 
 export const authSuccess = (data) => ({
   type: AUTH_SUCCESS,
   payload: data,
 });
+
+export const login = (credentials) => (dispatch) => {
+  dispatch(setStatusToLoading());
+  fetch('http://localhost:3000/api/v1/sessions/', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json()
+    })
+    .then((data) => {
+      if (data.status === 'Error') {
+        throw new Error(data.message);
+      }
+      dispatch(authSuccess(data));
+      dispatch(setStatusToSuccess());
+      console.log(data);
+    })
+    .catch((error) => {
+      dispatch(setStatusToError(error.message));
+      console.log('errrrr');
+      console.log(error);
+    });
+};
+
 
 export const signup = (credentials) => (dispatch) => {
   dispatch(setStatusToLoading());
@@ -17,16 +51,18 @@ export const signup = (credentials) => (dispatch) => {
     },
     body: JSON.stringify(credentials),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === 'Error') {
-        throw new Error(data.message);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
+      return response.json()
+    })
+    .then((data) => {
       dispatch(authSuccess(data))
       dispatch(setStatusToSuccess());
-      console.log(data);
+      setCredentials(data.username, data.token)
     })
     .catch((error) => {
-      dispatch(setStatusToError(error.message.split(',')));
+      dispatch(setStatusToError(error.message));
     });
 };

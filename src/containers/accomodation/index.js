@@ -1,4 +1,4 @@
-const List = () => {
+const Index = () => {
   return (
     <>
       <li>wer</li>
@@ -9,3 +9,5 @@ const List = () => {
     </>
   )
 }
+
+export default Index;

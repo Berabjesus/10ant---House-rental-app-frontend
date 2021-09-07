@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Navigation from '../../components/authentication/navigation'
 import styles from './common.module.css'
 
-const Common = ({clickhandler, setters}) => {
+const Common = ({clickhandler, setters, onError}) => {
 
   let formForSignUp;
   let appendForSignUp;
@@ -29,8 +29,8 @@ const Common = ({clickhandler, setters}) => {
  
   return (
     <>
-      <section className={`col-12 d-flex justify-content-center vh-100 pt-5 w-100 debug_border fade_in section`}>
-          <form className={`d-flex flex-column position-relative ${styles.form_box} ${formForSignUp}`}>
+      <section className={`col-12 d-flex justify-content-center vh-100 pt-5 w-100 fade_in section`}>
+          <form className={`d-flex flex-column position-relative ${styles.form_box} ${formForSignUp} ${onError}`}>
             <Navigation  />
             <div className=' d-flex align-items-center flex-column align-items-center w-100 pt-3 border-bottom border-dark border-2 pb-3 h-auto'>
               <FontAwesomeIcon
@@ -43,8 +43,8 @@ const Common = ({clickhandler, setters}) => {
             {
             appendForSignUp ? appendForSignUp : (
             <div className="pt-5 px-3 p-md-5 font_rw fw-bold">
-              <input className="form-control borderless_inputs mb-4" type="text" placeholder="Username" />
-              <input className="form-control borderless_inputs" type="password" placeholder="Password" />
+              <input className="form-control borderless_inputs mb-4" type="text" placeholder="Username" onChange={(e) => setName(e.target.value)}/>
+              <input className="form-control borderless_inputs" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             </div>)
             }
 

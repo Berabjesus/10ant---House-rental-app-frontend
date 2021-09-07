@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {signup} from '../../store/actions/authAction'
 import LoadingIcon from '../../components/common/loadingIcon';
 import Common from './common'
+import Index from '../accomodation/'
+import styles from './common.module.css'
 
 const OwnerSignUp = () => {
   const [name, setName] = useState('');
@@ -10,10 +12,11 @@ const OwnerSignUp = () => {
   const [dob, setDob] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [animateOnError, setAnimateOnError] = useState('');
   const setters = {setName, setEmail, setDob, setPassword, setPasswordConfirmation}
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.status);
-
+  const requestStatus = useSelector((state) => state.status);
+  const authStatus = useSelector((state) => state.authentication);
 
   const handleClick = () => {
     const credentials = {
@@ -22,25 +25,29 @@ const OwnerSignUp = () => {
       password_confirmation: passwordConfirmation.trim()
     }
     // use .replace(/\s/g, "") for email later
-
     dispatch(signup(credentials))
   }
 
   useEffect(() => {
-    console.log(status.loading);
+    if (requestStatus.error) {
+      console.log('sdklfjslkd');
+      setAnimateOnError(styles.shake);
+    }
+  }, [requestStatus.error]);
 
-  })
-
-  if (status.loading){
+  if (requestStatus.loading){
     return (
-      <section className={`col-12 d-flex justify-content-center vh-100 pt-5 w-100 debug_border fade_in section`}>         
         <LoadingIcon />
-      </section>
+    )
+  }
+  if (authStatus.isLoggedIn && authStatus.token) {
+    return (
+      <Index/>
     )
   }
   return (
     <>
-      <Common clickhandler = {handleClick} setters = {setters}/>
+      <Common clickhandler = {handleClick} setters = {setters} onError = {animateOnError}/>
     </>
   )
 }
