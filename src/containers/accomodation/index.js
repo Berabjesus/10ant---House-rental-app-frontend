@@ -1,5 +1,5 @@
 import Header from '../../components/accomodation/header'
-import Content from '../../components/accomodation/content'
+import Content from './content'
 
 const Index = () => {
   return (

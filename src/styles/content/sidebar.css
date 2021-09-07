@@ -1,6 +1,6 @@
 .aside {
-  box-shadow: 0px 10px 20px rgba(14, 1, 24, 0.4);
-  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(14, 1, 24, 0.226);
+  border-radius: 10px;
   background: #f8f8f8;
 }
 
@@ -16,8 +16,8 @@
   background-color: #000000;
   color: white;
   border-bottom: 1px solid black;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {
