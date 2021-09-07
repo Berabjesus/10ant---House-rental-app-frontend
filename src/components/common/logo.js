@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './style.module.css'
 
 const content = (textSize) => {
@@ -18,8 +19,8 @@ export const FixedLogo = () => {
 
 export const FloatingLogo = () => {
   return (
-    <div className ={`${styles.logo_fixed}`}>
+    <Link to="/" className ={`${styles.logo_fixed}`}>
       {content('display-5')}
-    </div>
+    </Link>
   )
 }

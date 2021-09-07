@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import {login} from '../../store/actions/authAction'
 import Common from '../../components/authentication/common'
 import Index from '../accomodation/'
@@ -39,7 +40,7 @@ const Login = () => {
   }
   if (authStatus.isLoggedIn && authStatus.token) {
     return (
-      <Index/>
+      <Redirect to={`/12`} />
     )
   }
   return (

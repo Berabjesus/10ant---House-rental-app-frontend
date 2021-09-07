@@ -6,6 +6,7 @@ import Login from './containers/authentication/login';
 import Role from './containers/authentication/role';
 import OwnerSignUp from './containers/authentication/ownerSignup';
 import TenantSignUp from './containers/authentication/tenantSignup';
+import Index from './containers/accomodation'
 import store from './store/store';
 
 // import View from './containers/view/view';
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact path ="/signup" component={Role}/>
         <Route exact path ="/signup/owner" component={OwnerSignUp}/>
         <Route exact path ="/signup/tenant" component={TenantSignUp}/>
+        <Route exact path ="/:id" component={Index}/>
 
         <Route path="*" component={Error} />
       </Switch>

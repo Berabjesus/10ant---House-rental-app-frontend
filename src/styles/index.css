@@ -1,3 +1,4 @@
+@import './common/header.css';
 @import url('https://fonts.googleapis.com/css2?family=Meddon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,700;1,100&display=swap');
@@ -114,6 +115,25 @@ body {
 .hover_custom:hover {
   box-shadow: 0px 15px 30px rgba(14, 1, 24, 0.4);
   transform: scale(1.02);
+}
+
+.link_btns {
+  transition: all 0.1s linear;
+}
+
+.link_btns:hover {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.788);
+  border-radius: unset;
+}
+
+.link_btns_active {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.link_btns_active:hover {
+  color: white;
+  background-color: black;
 }
 
 .section {
