@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import {faUser} from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navigation from '../../components/authentication/navigation'
+import Navigation from './navigation'
 import styles from './common.module.css'
+import {FloatingLogo} from '../../components/common/logo'
 
 const Common = ({clickhandler, setters, onError}) => {
 
@@ -30,6 +31,7 @@ const Common = ({clickhandler, setters, onError}) => {
   return (
     <>
       <section className={`col-12 d-flex justify-content-center vh-100 pt-5 w-100 fade_in section`}>
+          <FloatingLogo />
           <form className={`d-flex flex-column position-relative ${styles.form_box} ${formForSignUp} ${onError}`}>
             <Navigation  />
             <div className=' d-flex align-items-center flex-column align-items-center w-100 pt-3 border-bottom border-dark border-2 pb-3 h-auto'>

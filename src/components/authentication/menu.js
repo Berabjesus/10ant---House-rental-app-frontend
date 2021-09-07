@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
   return (        
-      <div className={`d-flex flex-column flex-md-row position-relative ${styles.form_box} ${styles.signup_menu}`}>
+      <div className={`d-flex flex-column flex-md-row position-relative my-auto ${styles.form_box} ${styles.signup_menu}`}>
         <Link to="/signup/tenant" className={`col-12 col-md-6 d-flex p-2 p-md-3 col-12 col-md-6 d-flex ${styles.signup_menu_anchor}`}>
           <div className={`position-relative text-black font_rw overflow-hidden border border-1 border-dark rounded-3 z_index_max w-100 hover_custom`}>
             <figure className={`z_index_min ${styles.menu_items} ${styles.menu_left}`} alt="tenant_image"></figure>

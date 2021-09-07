@@ -30,12 +30,9 @@ export const login = (credentials) => (dispatch) => {
       }
       dispatch(authSuccess(data));
       dispatch(setStatusToSuccess());
-      console.log(data);
     })
     .catch((error) => {
       dispatch(setStatusToError(error.message));
-      console.log('errrrr');
-      console.log(error);
     });
 };
 

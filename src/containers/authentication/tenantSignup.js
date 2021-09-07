@@ -1,12 +1,9 @@
-import Common from './common'
+import Signup from './signup'
 
-const TenantSignUp = () => {
-  const handleClick = () => {
-    console.log('tennant clikced ');
-  }
+const ownerSignup = () => {
   return (
-    <Common clickhandler = {handleClick} />
+    <Signup role='tenant' />
   )
 }
 
-export default TenantSignUp;
+export default ownerSignup
