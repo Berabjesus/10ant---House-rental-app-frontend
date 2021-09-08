@@ -14,7 +14,8 @@ const Navigation = () => {
               <FontAwesomeIcon
                   icon={faArrowAltCircleLeft}
                   style={{ color: 'Black', fontSize: '25px' }}
-                ></FontAwesomeIcon>
+                >
+              </FontAwesomeIcon>
             </button>
             <Link to="/" className="">
               <FontAwesomeIcon

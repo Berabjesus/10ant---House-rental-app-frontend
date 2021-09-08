@@ -1,11 +1,11 @@
 import Header from '../../components/accomodation/header'
-import Content from './content'
+import Main from './main'
 
 const Index = () => {
   return (
     <>
       <Header />
-      <Content />
+      <Main />
     </>
   )
 }
