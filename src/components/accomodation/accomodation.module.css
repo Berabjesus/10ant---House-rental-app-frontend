@@ -1,15 +1,34 @@
 .figure {
   height: 300px;
   width: 300px;
+  box-shadow: 0px 5px 10px rgba(14, 1, 24, 0.4);
 }
 
 .image_container {
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
 }
 
 .image {
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: all 0.15s linear;
+}
+
+.image_container:hover::after {
+  content: 'View';
+  display: block;
+  position: absolute;
+  padding-top: 100px;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: rgba(0, 0, 0, 0.418);
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.image_container:hover > .image {
+  transform: scale(1);
 }

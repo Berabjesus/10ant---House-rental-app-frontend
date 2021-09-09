@@ -35,25 +35,25 @@ const Display = () => {
   }
 
   return (
-    <div className="mt-3 d-flex justify-content-between flex debug_border">
-      <button className={`position-relative d-flex flex-column ${styles.figure}`}>
-        <div className={`debug_border ${styles.image_container}`}>
-          <img src={test} className={`${styles.image}`} alt="" />
+    <div className={`mt-3 d-flex flex-column flex ${styles.figure}`}>
+      <button className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column `}>
+        <div className={`w-100 h-100 font_rw ${styles.image_container}`}>
+          <img src={test} className={`h-100 w-100 ${styles.image}`} alt="" />
         </div>
-        <figcaption className="d-flex justify-content-between align-items-center py-2 border bg-light">
-          <FontAwesomeIcon
-            icon={faStarSolid}
-            style={{ color: 'Black', fontSize: '15px' }}>
-          </FontAwesomeIcon>
-          <button className="m-0 p-1 d-flex flex-row border border-dark">
-            <FontAwesomeIcon
-              icon={faPlusSquare}
-              style={{ color: 'Black', fontSize: '25px' }}>
-            </FontAwesomeIcon>
-            <strong className="ms-2">Add to Wishlist</strong>
-          </button>
-        </figcaption>
       </button>
+      <div className="d-flex justify-content-between align-items-center py-2 border bg-light">
+        <FontAwesomeIcon
+          icon={faStarSolid}
+          style={{ color: 'Black', fontSize: '15px' }}>
+        </FontAwesomeIcon>
+        <button className="m-0 p-1 d-flex flex-row border border-dark">
+          <FontAwesomeIcon
+            icon={faPlusSquare}
+            style={{ color: 'Black', fontSize: '25px' }}>
+          </FontAwesomeIcon>
+          <strong className="ms-2">Add to Wishlist</strong>
+        </button>
+      </div>
     </div>
   )
 }
