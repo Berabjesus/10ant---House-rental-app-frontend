@@ -4,9 +4,9 @@ import Display from '../../components/accomodation/display'
 
 const Main = () => {
   return (
-    <section className="container-fluid mx-auto d-flex flex-column flex-md-row justify-content-md-between align-items-start mx-0 px-3 py-4 main_section">
+    <section className="container-fluid mx-auto d-flex flex-column flex-lg-row justify-content-lg-between align-items-start mx-0 ps-lg-3 pe-0 py-4 main_section debug_border">
       <Sidebar />
-      <section className="col-12 col-md-7 col-lg-8 col-xl-9 px-5 d-flex flex-column offset-3">
+      <section className="col-12 col-lg-8 col-xl-9 px-lg-5 d-flex flex-column offset-lg-3 main_section_container debug_border">
         <SearchBar />
         <Display />
       </section>
