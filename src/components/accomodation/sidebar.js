@@ -1,7 +1,7 @@
 const Sidebar = () => {
   return (
     <>
-      <aside className=' p-0 col-12 col-md-5 col-lg-4 col-xl-3 h-auto d-flex flex-column flex font_rw aside'>
+      <aside className=' p-0 col-12 col-md-5 col-lg-4 col-xl-3 h-auto d-flex flex-column flex font_rw aside position-fixed'>
         <form>
           <div className=" sidebar_sections flex-grow-1">
             <h5 className="p-2 fw-bold">Types</h5>

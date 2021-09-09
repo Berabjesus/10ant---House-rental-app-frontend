@@ -1,7 +1,7 @@
 const SearchBar = () => {
   return (
-    <div className ="col-12 d-flex">
-      <div className="d-flex col-7">
+    <div className ="col-12 d-flex justify-content-start ps-5">
+      <div className="d-flex col-7 mr-auto">
         <input type="text" className=" form-control border border-2 border-dark" aria-label="Text input" placeholder="Search for anything"/>
       </div>
       <div className="dropdown ms-3">

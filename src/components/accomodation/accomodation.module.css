@@ -4,18 +4,12 @@
   box-shadow: 0px 5px 10px rgba(14, 1, 24, 0.4);
 }
 
-.image_container {
-  overflow: hidden;
+.fig_btn {
+
 }
 
-.image {
-  object-fit: cover;
-  transform: scale(1.1);
-  transition: all 0.15s linear;
-}
-
-.image_container:hover::after {
-  content: 'View';
+.fig_btn:hover::after {
+  content: 'View Description';
   display: block;
   position: absolute;
   padding-top: 100px;
@@ -29,6 +23,22 @@
   color: white;
 }
 
+.image_container {
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: all 0.15s linear;
+}
+
+
 .image_container:hover > .image {
   transform: scale(1);
+}
+
+.img_description {
+  position: absolute;
+  z-index: 100;
 }
