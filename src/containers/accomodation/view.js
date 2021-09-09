@@ -1,6 +1,8 @@
 import {useState} from 'react'
+import {Button} from 'react-bootstrap'
 import ReactImageZoom from 'react-image-zoom';
 import Header from '../../components/accomodation/header'
+import Reserve from '../../components/accomodation/reserve'
 import test from '../../assets/image/test.jpg'
 
 const View = () => {
@@ -15,13 +17,13 @@ const View = () => {
   };
 
   const [height, setHeight] = useState(window.outerWidth > 768 ? 300 : 200)
-  const [width, setWidth] = useState(window.outerWidth > 768 ? 400 : 200)
+  const [width, setWidth] = useState(window.outerWidth > 768 ? 400 : 300)
   const [position, setPosition] = useState(window.outerWidth > 768 ? "right" : "bottom")
 
   window.onresize = () => {
     let windowWidth = window.outerWidth;
     if (windowWidth < 768) {
-      setWidth(200)
+      setWidth(300)
       setHeight(200)
       setPosition("bottom")
     } else {
@@ -32,6 +34,10 @@ const View = () => {
   }
 
   const props = {width: width, height: height, zoomWidth: 500, zoomPosition: position, img: test};
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -44,7 +50,8 @@ const View = () => {
           <h2 className="border-bottom border-dark border-2 pb-3 mb-1">title</h2>
           <h4 className="mb-3">posted by : - </h4>
           <div className="col-8 d-flex flex-column flex-lg-row justify-content-between">
-            <button className="fw-bold mb-3 mb-lg-0 mx-0 mx-lg-2 landing_btns glow_button rounded-3">Reserve</button>
+            <Button type="button" className="btn btn-light fw-bold mb-3 mb-lg-0 mx-0 mx-lg-2 landing_btns glow_button rounded-3" onClick={handleShow}>Reserve Place</Button>
+            <Reserve show = {show} handleClose = {handleClose}/>
             <button className="fw-bold mb-3 mb-lg-0 mx-0 mx-lg-2 landing_btns glow_button rounded-3">Add to wishlist</button>
           </div>
           <div className="pt-5 my-md-auto view_img_description">
