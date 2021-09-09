@@ -1,3 +1,5 @@
+import {useState} from 'react'
+import ReactImageZoom from 'react-image-zoom';
 import Header from '../../components/accomodation/header'
 import test from '../../assets/image/test.jpg'
 
@@ -12,21 +14,40 @@ const View = () => {
     uploadedBy: 'Berekt'
   };
 
+  const [height, setHeight] = useState(window.outerWidth > 768 ? 300 : 200)
+  const [width, setWidth] = useState(window.outerWidth > 768 ? 400 : 200)
+  const [position, setPosition] = useState(window.outerWidth > 768 ? "right" : "bottom")
+
+  window.onresize = () => {
+    let windowWidth = window.outerWidth;
+    if (windowWidth < 768) {
+      setWidth(200)
+      setHeight(200)
+      setPosition("bottom")
+    } else {
+      setWidth(400)
+      setHeight(300)
+      setPosition("right")
+    }
+  }
+
+  const props = {width: width, height: height, zoomWidth: 500, zoomPosition: position, img: test};
+
   return (
     <>
       <Header />
       <section className="pt-4 px-3 d-flex flex-column flex-md-row justify-content-md-center font_rw margin_100 view_container fade_in">
-        <div className=" me-md-3 border border-1 border-dark view_shadow view_img_container">
-          <img className="h-100 w-100" src={item.image} alt="" />
+        <div className=" mx-auto mx mx-md-0 me-md-3 border border-1 border-dark view_shadow view_img_container">
+          <ReactImageZoom {...props}/>
         </div>
-        <article className="col-6 bg-light d-flex flex-column justify-content-between px-5 pt-4 border border-dark view_shadow">
+        <article className=" col-12 col-md-6 mt-4 mt-md-0 bg-light d-flex flex-column justify-content-between px-5 pt-4 border border-dark view_shadow">
           <h2 className="border-bottom border-dark border-2 pb-3 mb-1">title</h2>
           <h4 className="mb-3">posted by : - </h4>
-          <div className="col-8 d-flex justify-content-between">
-            <button className="fw-bold landing_btns glow_button rounded-3">Reserve</button>
-            <button className="fw-bold landing_btns glow_button rounded-3">Add to wishlist</button>
+          <div className="col-8 d-flex flex-column flex-lg-row justify-content-between">
+            <button className="fw-bold mb-3 mb-lg-0 mx-0 mx-lg-2 landing_btns glow_button rounded-3">Reserve</button>
+            <button className="fw-bold mb-3 mb-lg-0 mx-0 mx-lg-2 landing_btns glow_button rounded-3">Add to wishlist</button>
           </div>
-          <div className="my-auto view_img_description">
+          <div className="pt-5 my-md-auto view_img_description">
             <h2 className="border-bottom border-2 border-dark">Details</h2>
 
           </div>

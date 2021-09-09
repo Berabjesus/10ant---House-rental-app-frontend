@@ -23,3 +23,10 @@
   height: 400px;
   overflow-y: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .view_img_container {
+    height: 200px;
+    width: 200px;
+  }
+}
