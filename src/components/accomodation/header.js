@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className=" fixed-top">
       <nav className="header_nav bg-white py-3">
         <div className="container d-flex wrap">
-          <div className="logo">
+          <Link to="/:id" className="logo">
             <h1 className="font_logo text-black">10Ant</h1>
-          </div>
+          </Link>
           <div className=" d-flex align-self-center ms-auto w-50 ">
             <ul className = "d-flex justify-content-between w-100 font_rw">
               <li><a href="register.html" className="p-2 h-100 w-100 link_btns_active">Post a Place</a></li>

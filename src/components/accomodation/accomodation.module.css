@@ -14,7 +14,7 @@
   content: 'View Description';
   display: block;
   position: absolute;
-  padding-top: 100px;
+  padding-top: 120px;
   top: 0%;
   left: 0%;
   width: 100%;
@@ -31,16 +31,15 @@
 
 .image {
   object-fit: cover;
-  transform: scale(1.05);
-  transition: all 0.15s linear;
-}
-
-
-.image_container:hover > .image {
-  transform: scale(1);
+  transform: scale(1.1);
+  transition: all 0.25s linear;
 }
 
 .img_description {
   position: absolute;
   z-index: 100;
+}
+
+.fig_btn:hover  .image {
+  transform: scale(1);
 }

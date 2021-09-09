@@ -7,10 +7,8 @@ import Role from './containers/authentication/role';
 import OwnerSignUp from './containers/authentication/ownerSignup';
 import TenantSignUp from './containers/authentication/tenantSignup';
 import Index from './containers/accomodation'
+import View from './containers/accomodation/view';
 import store from './store/store';
-
-// import View from './containers/view/view';
-// import store from './store/store';
 
 const App = () => (
   <Provider store={store}>
@@ -23,6 +21,7 @@ const App = () => (
         <Route exact path ="/signup/owner" component={OwnerSignUp}/>
         <Route exact path ="/signup/tenant" component={TenantSignUp}/>
         <Route exact path ="/:id" component={Index}/>
+        <Route exact path ="/view/:id" component={View}/>
 
         <Route path="*" component={Error} />
       </Switch>

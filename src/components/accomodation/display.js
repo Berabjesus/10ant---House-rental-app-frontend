@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './accomodation.module.css'
 import test from '../../assets/image/test.jpg'
 import { faStar,faPlusSquare} from '@fortawesome/free-regular-svg-icons'
@@ -84,12 +85,12 @@ const Display = () => {
   }
 
   return (
-    <div className=" d-flex mt-4 flex-wrap debug_border">
+    <div className=" d-flex mt-4 flex-wrap">
       {
         itemNumber.map(item => {
           return (
             <div className={`col-1 mb-3 mx-2 flex-grow-1 d-flex flex-column ${styles.figure}`}>
-              <button className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
+              <Link to="/view/12" className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
                 <div className={`p-2 font_rw d-flex flex-column text-start w-100 h-100 ${styles.img_description}`}>
                   <h4 className="border-bottom border-dark border-2">{item.type[0].toUpperCase() + item.type.slice(1).toLowerCase()}</h4>
                   <small className="text-dark">Posted by <ins className=" text-decoration-none fw-bold">{item.uploadedBy}</ins></small>
@@ -98,7 +99,7 @@ const Display = () => {
                 <div className={`w-100 h-100 font_rw ${styles.image_container}`}>
                   <img src={item.image} className={`h-100 w-100 ${styles.image}`} alt="" />
                 </div>
-              </button>
+              </Link>
               <div className="d-flex justify-content-between align-items-center p-2 border bg-light">
                 {
                   (()=> {
