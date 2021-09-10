@@ -2,17 +2,24 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import {login} from '../../store/actions/authAction'
+import {IsLoggedIn} from '../../helpers/accessControl'
 import Common from '../../components/authentication/common'
 import Index from '../accomodation/'
 import LoadingIcon from '../../components/common/loadingIcon';
 import styles from '../../components/authentication/common.module.css'
 
 const Login = () => {
+
+  const authStatus = useSelector((state) => state.authentication);
+
+  if (IsLoggedIn()) {
+    <Redirect to={`${authStatus.username}`} />
+  }
+
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const setters = {setName, setPassword}
   const requestStatus = useSelector((state) => state.status);
-  const authStatus = useSelector((state) => state.authentication);
 
   const [animateOnError, setAnimateOnError] = useState('');
   const [attempt, setAttempt] = useState(0)
@@ -40,7 +47,7 @@ const Login = () => {
   }
   if (authStatus.isLoggedIn && authStatus.token) {
     return (
-      <Redirect to={`/12`} />
+      <Redirect to={`${authStatus.username}`} />
     )
   }
   return (

@@ -30,6 +30,7 @@ export const login = (credentials) => (dispatch) => {
       }
       dispatch(authSuccess(data));
       dispatch(setStatusToSuccess());
+      setCredentials(data.username, data.token)
     })
     .catch((error) => {
       dispatch(setStatusToError(error.message));

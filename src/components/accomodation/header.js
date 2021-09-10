@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
+import {removeUser} from '../../helpers/tokenHandler'
+import { useHistory } from 'react-router-dom';
 
 const Header = () => {
+  let history = useHistory();
+  const handleLogOut = () => {
+    removeUser();
+    history.push('/')
+  }
   return (
     <header className=" fixed-top">
       <nav className="header_nav bg-white py-3">
@@ -10,10 +17,10 @@ const Header = () => {
           </Link>
           <div className=" d-flex align-self-center ms-auto w-50 ">
             <ul className = "d-flex justify-content-between w-100 font_rw">
-              <li><a href="register.html" className="p-2 h-100 w-100 link_btns_active">Post a Place</a></li>
-              <li><a href="shop.html" className="pb-2 link_btns h-100 w-100">Wishlist</a></li>
-              <li><a href="login.html" className="pb-2 link_btns h-100 w-100">My Account</a></li>
-              <li><a href="checkout.html" className="pb-2 link_btns h-100 w-100">Log out</a></li>
+              <li><a href="#" className="p-2 h-100 w-100 link_btns_active">Post a Place</a></li>
+              <li><a href="#" className="pb-2 link_btns h-100 w-100">Wishlist</a></li>
+              <li><a href="#" className="pb-2 link_btns h-100 w-100">My Account</a></li>
+              <li><a href="#" className="pb-2 link_btns h-100 w-100" onClick={() => handleLogOut()}>Log out</a></li>
             </ul>
           </div>
         </div>
@@ -21,12 +28,12 @@ const Header = () => {
       <nav className="bg-black ">
         <div className="container py-1">
           <ul className=" d-flex justify-content-between text-white w-50 font_rw">
-            <li><a className="pb-1 subheader_link" href="#">Home</a></li>
-            <li className="grid"><a className="pb-1 subheader_link" href="#">Invoices</a>
+            <li><a href="#" className="pb-1 subheader_link" >Home</a></li>
+            <li className="grid"><a href="#" className="pb-1 subheader_link" >Invoices</a>
             </li>
-            <li><a className="pb-1 subheader_link" href="#">About</a>
+            <li><a href="#" className="pb-1 subheader_link" >About</a>
             </li>
-            <li><a className="pb-1 subheader_link" href="#">Contact</a>
+            <li><a href="#" className="pb-1 subheader_link" >Contact</a>
             </li>
           </ul>
           <div className="clear"></div>
