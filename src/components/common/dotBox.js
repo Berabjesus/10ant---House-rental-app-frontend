@@ -2,7 +2,7 @@ import styles from './style.module.css'
 
 const DotBox = ({direction}) => {
   let directionStyle;
-  if (direction == 'left') {
+  if (direction === 'left') {
     directionStyle = styles.box_left
   } else {
     directionStyle = styles.box_right

@@ -8,6 +8,7 @@ import OwnerSignUp from './containers/authentication/ownerSignup';
 import TenantSignUp from './containers/authentication/tenantSignup';
 import Index from './containers/accomodation'
 import View from './containers/accomodation/view';
+import Post from './containers/accomodation/post';
 import store from './store/store';
 
 const App = () => (
@@ -21,7 +22,7 @@ const App = () => (
         <Route exact path ="/signup/tenant" component={TenantSignUp}/>
         <Route exact path ="/:id" component={Index}/>
         <Route exact path ="/view/:id" component={View}/>
-
+        <Route exact path ="/post/:id" component={Post}/>
         <Route path="*" component={Error} />
       </Switch>
     </main>
