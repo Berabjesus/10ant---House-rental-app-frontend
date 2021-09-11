@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS } from '../types';
+import { AUTH_SUCCESS, LOGOUT } from '../types';
 
 const initialState = {
   isLoggedIn: false,
@@ -17,14 +17,14 @@ const authenticationReducer = (state = initialState, action) => {
         token: action.payload.token,
         error: null,
       };
-    // case LOGOUT:
-    //   return {
-    //     ...state,
-    //     isLoggedIn: false,
-    //     username: '',
-    //     token: null,
-    //     error: null,
-    //   };
+    case LOGOUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        username: '',
+        token: null,
+        error: null,
+      };
     default: return state;
   }
 };

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import {faUser} from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navigation from './navigation'
+import Navigation from './nav'
 import styles from './common.module.css'
 import {FloatingLogo} from '../../components/common/logo'
 

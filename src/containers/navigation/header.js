@@ -1,11 +1,15 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {removeUser} from '../../helpers/tokenHandler'
 import { useHistory } from 'react-router-dom';
+import {logout} from '../../store/actions/authAction'
 
 const Header = () => {
   let history = useHistory();
+  const dispatch = useDispatch();
   const handleLogOut = () => {
     removeUser();
+    dispatch(logout())
     history.push('/')
   }
   return (

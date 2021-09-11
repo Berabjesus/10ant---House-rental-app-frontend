@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {Button} from 'react-bootstrap'
 import ReactImageZoom from 'react-image-zoom';
-import Header from '../../components/accomodation/header'
+import Header from '../navigation/header'
 import Reserve from '../../components/accomodation/reserve'
 import test from '../../assets/image/test.jpg'
 

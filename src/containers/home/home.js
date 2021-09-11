@@ -1,10 +1,21 @@
+import { useSelector, useDispatch } from 'react-redux';
+import {authSuccess} from '../../store/actions/authAction'
+import { Redirect } from 'react-router-dom';
 import FadeIn from 'react-fade-in';
 import Buttons from '../../components/home/buttons'
 import DotBox from '../../components/common/dotBox'
 import {FixedLogo} from '../../components/common/logo'
+import {IsLoggedIn} from '../../helpers/accessControl'
 import styles from './home.module.css';
 
-const home = () => {
+const Home = () => {
+  const authStatus = useSelector((state) => state.authentication);
+  const dispatch = useDispatch();
+
+  if (IsLoggedIn()) {
+    dispatch(authSuccess(IsLoggedIn()));
+    return <Redirect to={`/${authStatus.username}`} />;
+  }
   return (
     <section className={`vh-100 pt-xl-5 ps-md-5 fade_in  ${styles.section}`}>
       <DotBox direction= 'right'/>
@@ -32,4 +43,4 @@ const home = () => {
   )
 }
 
-export default home;
+export default Home;

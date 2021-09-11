@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS } from '../types';
+import { AUTH_SUCCESS, LOGOUT } from '../types';
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {setCredentials} from '../../helpers/tokenHandler'
 
@@ -6,6 +6,11 @@ export const authSuccess = (data) => ({
   type: AUTH_SUCCESS,
   payload: data,
 });
+
+export const logout = () => ({
+  type: LOGOUT,
+});
+
 
 export const login = (credentials) => (dispatch) => {
   dispatch(setStatusToLoading());

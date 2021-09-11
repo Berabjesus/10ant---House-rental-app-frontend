@@ -3,7 +3,7 @@ import { faArrowAltCircleLeft} from '@fortawesome/free-regular-svg-icons'
 import {faHome} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Navigation = () => {
+const Nav = () => {
   const history = useHistory()
 
   return (
@@ -28,4 +28,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Nav
