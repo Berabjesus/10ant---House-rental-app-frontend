@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {Link, Redirect, useLocation } from 'react-router-dom';
+import {IsLoggedIn} from '../../helpers/accessControl'
 import {removeUser} from '../../helpers/tokenHandler'
 import { useHistory } from 'react-router-dom';
 import {logout} from '../../store/actions/authAction'
@@ -18,7 +19,7 @@ const Header = () => {
   const handlePostPlace = () => {
     return history.push(`/post/${authStatus.username}`)
   }
-
+  
   return (
     <header className=" fixed-top">
       <nav className="header_nav bg-white py-3">

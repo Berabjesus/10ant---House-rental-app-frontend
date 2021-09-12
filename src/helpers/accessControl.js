@@ -5,12 +5,11 @@ import {authSuccess} from '../store/actions/authAction';
 
 export const IsLoggedIn = () => {
   if (getToken()) {
-    let id = (jwt_decode(getToken())).user_id;
+    let id = (jwt_decode(getToken())).aud;
     const data = {
       username: id,
       token: getToken()
     }
-    setCredentials(data.username, data.token)
     return data;
   } else {
     return false;
@@ -20,6 +19,8 @@ export const IsLoggedIn = () => {
 export const SetAuthenticationState = () => {
   const dispatch = useDispatch();
   if (IsLoggedIn()) {
+    console.log("hghjkhjkhk");
+    setCredentials(IsLoggedIn().username, IsLoggedIn().token)
     dispatch(authSuccess(IsLoggedIn()));
   }
 }

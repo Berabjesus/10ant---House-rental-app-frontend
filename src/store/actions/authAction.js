@@ -27,11 +27,11 @@ export const login = (credentials) => (dispatch) => {
   })
     .then((response) => {
       if (!response.ok) {          
-      response.json().then(data => {
-        dispatch(setStatusToError(data.message));
-      })
-      .catch(console.error);
-        throw new Error("response");
+        response.json().then(data => {
+          dispatch(setStatusToError(data.message));
+        })
+        .catch(console.error);
+        throw new Error("Error authAct -- 34");
       }
       return response.json()
     })
@@ -55,7 +55,7 @@ export const login = (credentials) => (dispatch) => {
 };
 
 
-export const signup = (credentials) => (dispatch) => {
+export const signup = (credentials, history) => (dispatch) => {
   dispatch(setStatusToLoading());
   fetch('http://localhost:9090/10Ant/v1/register', {
     method: 'POST',
@@ -68,16 +68,35 @@ export const signup = (credentials) => (dispatch) => {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error(response.statusText);
+        console.log(response);
+        response.json().then(data => {
+          dispatch(setStatusToError(data.message));
+        })
+        .catch(console.error);
+          throw new Error("Error authAct -- 34");
       }
-      return response.json()
+
+      if(response.ok){
+        dispatch(setStatusToSuccess());
+        dispatch(authSuccess({username: credentials.username,
+        token: null}))
+        history.push("/login")
+      }
+      // return response.text()
     })
-    .then((data) => {
-      dispatch(authSuccess(data))
-      dispatch(setStatusToSuccess());
-      setCredentials(data.username, data.token)
-    })
+    // .then((response) => {
+    //   console.log('success');
+    //   response.json().then(data => {
+    //     // dispatch(authSuccess(data))
+    //     dispatch(setStatusToSuccess());
+    //     // setCredentials(data.username, data.token)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     throw new Error("Error authAct -- 34");
+    //   })
+    // })
     .catch((error) => {
-      dispatch(setStatusToError(error.message));
+      console.log(error);
     });
 };

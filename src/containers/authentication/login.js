@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import {authSuccess} from '../../store/actions/authAction'
 import {login} from '../../store/actions/authAction'
-import {IsLoggedIn} from '../../helpers/accessControl'
+import {IsLoggedIn, SetAuthenticationState} from '../../helpers/accessControl'
 import Common from '../../components/authentication/common'
 import Index from '../accomodation/'
 import LoadingIcon from '../../components/common/loadingIcon';
@@ -52,13 +52,15 @@ const Login = () => {
     )
   }
   if (IsLoggedIn() || (authStatus.isLoggedIn && authStatus.token)) {
+    if(!authStatus.isLoggedIn)
+      SetAuthenticationState()
     return (
-      <Redirect to={`/${authStatus.username}`} />
+      <Redirect to={`/user/${authStatus.username}`} />
     )
   }
   return (
     <>
-      <Common clickhandler = {handleClick} setters= {setters} onError = {animateOnError} errorMessage = {errorMessage}/>
+      <Common clickhandler = {handleClick} setters= {setters}  onError = {animateOnError} errorMessage = {errorMessage}/>
     </>
   )
 }

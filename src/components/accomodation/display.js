@@ -80,14 +80,12 @@ const Display = () => {
     uploadedBy: 'Berekt'
   }];
 
-  const render = (item) => {
-
-  }
+  const arr = []
 
   return (
     <div className=" d-flex mt-4 flex-wrap">
       {
-        itemNumber.map(item => {
+        arr.map(item => {
           return (
             <div className={`col-1 mb-3 mx-2 flex-grow-1 d-flex flex-column ${styles.figure}`}>
               <Link to="/view/12" className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
