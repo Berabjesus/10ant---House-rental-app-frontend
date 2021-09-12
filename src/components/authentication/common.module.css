@@ -14,7 +14,7 @@
 
 .signup_form_box {
   width: 550px;
-  height: 550px;
+  height: 750px;
 }
 
 .default_form_box {
@@ -60,5 +60,9 @@
 @media screen and (max-width: 576px) {
   .form_box {
     width: 90vw;
+  }
+
+  .signup_form_box {
+    height: 800px;
   }
 }

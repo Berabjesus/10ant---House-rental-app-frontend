@@ -1,6 +1,7 @@
 import { AUTH_SUCCESS, LOGOUT } from '../types';
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {setCredentials} from '../../helpers/tokenHandler'
+import jwt_decode from "jwt-decode";
 
 export const authSuccess = (data) => ({
   type: AUTH_SUCCESS,
@@ -13,10 +14,11 @@ export const logout = () => ({
 
 
 export const login = (credentials) => (dispatch) => {
+  console.log(credentials);
   dispatch(setStatusToLoading());
-  fetch('http://localhost:3000/api/v1/sessions/', {
+  fetch('http://localhost:9090/10Ant/v1/login', {
     method: 'POST',
-    mode: 'cors',
+    mode : 'cors',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -24,8 +26,12 @@ export const login = (credentials) => (dispatch) => {
     body: JSON.stringify(credentials),
   })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
+      if (!response.ok) {          
+      response.json().then(data => {
+        dispatch(setStatusToError(data.message));
+      })
+      .catch(console.error);
+        throw new Error("response");
       }
       return response.json()
     })
@@ -33,19 +39,25 @@ export const login = (credentials) => (dispatch) => {
       if (data.status === 'Error') {
         throw new Error(data.message);
       }
-      dispatch(authSuccess(data));
+      const decodedToken = jwt_decode(data.token);
+      const username = decodedToken.aud;
+      const newUserData = {
+        username,
+        token: data.token
+      }
+      dispatch(authSuccess(newUserData));
       dispatch(setStatusToSuccess());
-      setCredentials(data.username, data.token)
+      setCredentials(username, data.token)
     })
     .catch((error) => {
-      dispatch(setStatusToError(error.message));
+      return false;
     });
 };
 
 
 export const signup = (credentials) => (dispatch) => {
   dispatch(setStatusToLoading());
-  fetch('http://localhost:3000/api/v1/users/', {
+  fetch('http://localhost:9090/10Ant/v1/register', {
     method: 'POST',
     mode: 'cors',
     headers: {

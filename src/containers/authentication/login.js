@@ -12,9 +12,9 @@ import styles from '../../components/authentication/common.module.css'
 const Login = () => {
 
   const authStatus = useSelector((state) => state.authentication);
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const setters = {setName, setPassword}
+  const setters = {setUsername, setPassword}
   const requestStatus = useSelector((state) => state.status);
 
   const [animateOnError, setAnimateOnError] = useState('');
@@ -30,7 +30,7 @@ const Login = () => {
   const handleClick = () => {
     setAttempt(attempt + 1)
     const credentials = {
-      username: name.trim(),
+      username: username.trim(),
       password: password.trim(),
     }
     dispatch(login(credentials));
