@@ -4,7 +4,7 @@
 }
 
 .form_box {
-  height: 500px;
+  min-height: 500px;
   width: 400px;
   background: white;
   border: 2px solid black;
@@ -14,11 +14,11 @@
 
 .signup_form_box {
   width: 550px;
-  height: 750px;
+  min-height: 750px;
 }
 
 .default_form_box {
-  height: 500px;
+  height: 600px;
   width: 400px;
 }
 
@@ -63,6 +63,6 @@
   }
 
   .signup_form_box {
-    height: 800px;
+    min-height: 800px;
   }
 }

@@ -19,11 +19,19 @@ const Login = () => {
 
   const [animateOnError, setAnimateOnError] = useState('');
   const [attempt, setAttempt] = useState(0)
+  const [errorMessage, setErrorMessage] = useState('');
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (requestStatus.error && attempt > 0) {
-      setAnimateOnError(styles.shake);
+        setErrorMessage(
+          <div className= "border border-danger rounded-3 mx-auto mb-5 px-4 py-2 shadow-sm">
+            <h6 className="text-danger">{requestStatus.error}</h6>
+          </div>)
+        setAnimateOnError(styles.shake);
+    } else {
+      setErrorMessage("")
     }
   }, [requestStatus.error, attempt]);
 
@@ -36,6 +44,8 @@ const Login = () => {
     dispatch(login(credentials));
   }
 
+
+
   if (requestStatus.loading){
     return (
         <LoadingIcon />
@@ -47,7 +57,9 @@ const Login = () => {
     )
   }
   return (
-    <Common clickhandler = {handleClick} setters= {setters} onError = {animateOnError}/>
+    <>
+      <Common clickhandler = {handleClick} setters= {setters} onError = {animateOnError} errorMessage = {errorMessage}/>
+    </>
   )
 }
 

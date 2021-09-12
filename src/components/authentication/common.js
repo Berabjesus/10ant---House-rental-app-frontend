@@ -6,7 +6,7 @@ import Navigation from './nav'
 import styles from './common.module.css'
 import {FloatingLogo} from '../../components/common/logo'
 
-const Common = ({clickhandler, setters, onError}) => {
+const Common = ({clickhandler, setters, onError, errorMessage}) => {
 
   let formForSignUp;
   let appendForSignUp;
@@ -57,7 +57,7 @@ const Common = ({clickhandler, setters, onError}) => {
               <input className="form-control borderless_inputs" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             </div>)
             }
-
+            {errorMessage}
             <div className="align-self-center d-flex flex-column align-items-center">
               <button className= "btn btn-light px-3 py-2 my-2 landing_btns glow_button" type="button" onClick = {clickhandler}>{ pathName.split('/')[0]}</button>
               <p>or</p>
