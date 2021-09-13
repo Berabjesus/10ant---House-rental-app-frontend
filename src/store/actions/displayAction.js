@@ -1,7 +1,7 @@
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {getToken} from '../../helpers/tokenHandler'
 import {DISPLAY_SUCCESS} from '../types'
-
+import {globalApi} from './globalUrl'
 
 export const displaySuccess = (data) => ({
   type: DISPLAY_SUCCESS,
@@ -10,7 +10,7 @@ export const displaySuccess = (data) => ({
 
 export const displayAction = () => (dispatch) => {
   dispatch(setStatusToLoading());
-  fetch('http://localhost:9090/10Ant/v1/accommodation', {
+  fetch(`${globalApi}/accommodation`, {
     method: 'GET',
     mode: 'cors',
     headers: {

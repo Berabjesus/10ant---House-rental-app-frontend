@@ -1,6 +1,7 @@
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {getToken} from '../../helpers/tokenHandler'
 import {POST_SUCCESS} from '../../store/types'
+import {globalApi} from './globalUrl'
 
 const postSuccess = () => ({
   type: POST_SUCCESS,
@@ -9,7 +10,7 @@ const postSuccess = () => ({
 export const PostAction = (content) => (dispatch) => {
   dispatch(setStatusToLoading());
   console.log(content);
-  fetch('http://localhost:9090/10Ant/v1/accommodation', {
+  fetch(`${globalApi}/accommodation`, {
     method: 'POST',
     mode: 'cors',
     headers: {

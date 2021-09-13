@@ -2,6 +2,7 @@ import { AUTH_SUCCESS, LOGOUT } from '../types';
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {setCredentials} from '../../helpers/tokenHandler'
 import jwt_decode from "jwt-decode";
+import {globalApi} from './globalUrl'
 
 export const authSuccess = (data) => ({
   type: AUTH_SUCCESS,
@@ -15,7 +16,7 @@ export const logout = () => ({
 
 export const login = (credentials) => (dispatch) => {
   dispatch(setStatusToLoading());
-  fetch('http://localhost:9090/10Ant/v1/login', {
+  fetch(`${globalApi}/login`, {
     method: 'POST',
     mode : 'cors',
     headers: {
@@ -56,7 +57,7 @@ export const login = (credentials) => (dispatch) => {
 
 export const signup = (credentials, history) => (dispatch) => {
   dispatch(setStatusToLoading());
-  fetch('http://localhost:9090/10Ant/v1/register', {
+  fetch(`${globalApi}/register`, {
     method: 'POST',
     mode: 'cors',
     headers: {
