@@ -5,3 +5,4 @@ export const STATUS_SUCCESS = 'STATUS_SUCCESS';
 export const STATUS_ERRORS = 'STATUS_ERRORS';
 export const LOGOUT = 'LOGOUT'
 export const POST_SUCCESS = 'POST_SUCCESS'
+export const DISPLAY_SUCCESS = 'POST_SUCCESS'

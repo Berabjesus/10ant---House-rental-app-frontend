@@ -12,11 +12,11 @@ const Home = () => {
   const authStatus = useSelector((state) => state.authentication);
   const dispatch = useDispatch();
 
-  // if (IsLoggedIn() || authStatus.isLoggedIn && authStatus.token) {
-  //   if(!authStatus.isLoggedIn)
-  //   dispatch(authSuccess(IsLoggedIn()));
-  //   return <Redirect to={`/user/${authStatus.username}`} />;
-  // }
+  if (IsLoggedIn() || authStatus.isLoggedIn && authStatus.token) {
+    if(!authStatus.isLoggedIn)
+    dispatch(authSuccess(IsLoggedIn()));
+    return <Redirect to={`/user/${authStatus.username}`} />;
+  }
 
   return (
     <section className={`vh-100 pt-xl-5 ps-md-5 fade_in  ${styles.section}`}>

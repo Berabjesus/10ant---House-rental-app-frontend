@@ -56,8 +56,6 @@ export const login = (credentials) => (dispatch) => {
 
 export const signup = (credentials, history) => (dispatch) => {
   dispatch(setStatusToLoading());
-  console.log(credentials);
-  console.log(JSON.stringify(credentials));
   fetch('http://localhost:9090/10Ant/v1/register', {
     method: 'POST',
     mode: 'cors',

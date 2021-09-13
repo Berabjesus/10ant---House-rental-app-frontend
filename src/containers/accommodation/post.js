@@ -8,7 +8,7 @@ import {PostAction} from '../../store/actions/postAction'
 const Post = () => {
   SetAuthenticationState()
   const [image, setImage ] = useState("");
-  const [ url, setUrl ] = useState("");
+  const [ url, setUrl ] = useState(null);
   const [address, setAddress] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
   const [price, setPrice] = useState("");
@@ -38,6 +38,9 @@ const Post = () => {
   }, [url])
 
   const handleClick = () => {
+    if (!url) {
+      return
+    }
     const content = {
       image: url.trim(),
       price: price.trim(),
@@ -67,11 +70,11 @@ const Post = () => {
             </div>
             <div>
               <label htmlFor="" className=" w-100 h4"> House Number</label>
-              <input type="number" className="form-control border border-2 border-dark mx-1 w-100" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1" onChange = {(e)=> setHouseNumber(e.target.value)} />
+              <input type="number" className="form-control border border-2 border-dark mx-1 w-100" placeholder="House No" aria-label="Username" aria-describedby="basic-addon1" onChange = {(e)=> setHouseNumber(e.target.value)} />
             </div>
             <div>
               <label htmlFor="" className=" w-100 h4">Price</label>
-              <input type="number" className="form-control border border-2 border-dark mx-1 w-100" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1" onChange = {(e)=> setPrice(e.target.value)}/>
+              <input type="number" className="form-control border border-2 border-dark mx-1 w-100" placeholder="Price" aria-label="Username" aria-describedby="basic-addon1" onChange = {(e)=> setPrice(e.target.value)}/>
             </div>
             <div>
               <label htmlFor="" className=" w-100 h4">Type</label>

@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import authentication from './authReducer';
 import statusReducer from './statusReducer';
 import postReducer from './postReducer'
+import content from './displayReducer'
 
 const rootReducer = combineReducers({
   authentication,
   status : statusReducer,
-  postReducer
+  postReducer,
+  content
 });
 
 export default rootReducer;

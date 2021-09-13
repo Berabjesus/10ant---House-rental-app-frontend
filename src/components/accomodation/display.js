@@ -1,9 +1,13 @@
+import {useState, useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './accomodation.module.css'
 import test from '../../assets/image/test.jpg'
 import { faStar,faPlusSquare} from '@fortawesome/free-regular-svg-icons'
 import {faStar as faStarSolid} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import LoadingIcon from '../../components/common/loadingIcon';
+import {displayAction} from '../../store/actions/displayAction';
 
 const Display = () => {
   const itemNumber = [{
@@ -81,11 +85,30 @@ const Display = () => {
   }];
 
   const arr = []
+  const requestStatus = useSelector((state) => state.status);
+  const content =  useSelector((state) => state.content);
+  const [arrayContent, setarrayContent] = useState(null)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(displayAction());
+  }, [])
 
-  return (
+  useEffect(() => {
+    console.log(content);
+    setarrayContent(content.content);
+  }, [content])
+
+  if (requestStatus.loading){
+    return (
+        <LoadingIcon />
+    )
+  }
+
+  if(arrayContent) 
+    return (
     <div className=" d-flex mt-4 flex-wrap">
       {
-        arr.map(item => {
+        arrayContent.map(item => {
           return (
             <div className={`col-1 mb-3 mx-2 flex-grow-1 d-flex flex-column ${styles.figure}`}>
               <Link to="/view/12" className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
@@ -138,6 +161,11 @@ const Display = () => {
       }
     </div>
   )
+  else {
+    return (
+      <></>
+    )
+  }
 }
 
 export default Display;

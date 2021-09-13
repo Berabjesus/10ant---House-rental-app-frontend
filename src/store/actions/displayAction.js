@@ -1,38 +1,40 @@
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {getToken} from '../../helpers/tokenHandler'
-import {POST_SUCCESS} from '../../store/types'
+import {DISPLAY_SUCCESS} from '../types'
 
-const postSuccess = () => ({
-  type: POST_SUCCESS,
-});
 
-export const PostAction = (content) => (dispatch) => {
+export const displaySuccess = (data) => ({
+  type: DISPLAY_SUCCESS,
+  payload: data
+})
+
+export const displayAction = () => (dispatch) => {
   dispatch(setStatusToLoading());
-  console.log(content);
   fetch('http://localhost:9090/10Ant/v1/accommodation', {
-    method: 'POST',
+    method: 'GET',
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: `Bearer ${getToken()}`,
-    },
-    body: JSON.stringify(content),
+    }
   })
   .then((response) => {
-    if (!response.ok) {
+    if (!response.ok) {          
       response.json().then(data => {
         dispatch(setStatusToError(data.message));
       })
       .catch(console.error);
-        throw new Error("Error authAct -- 34");
+      throw new Error("Error authAct -- 34");
     }
-    if(response.ok){
-      dispatch(setStatusToSuccess());
-      dispatch(postSuccess())
-    }
+    return response.json()
+  })
+  .then((data) => {
+    dispatch(displaySuccess(data));
+    dispatch(setStatusToSuccess());
   })
   .catch((error) => {
-    console.log(error);
+    return false;
   });
+
 }
