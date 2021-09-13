@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../navigation/header';
 import {SetAuthenticationState} from '../../helpers/accessControl'
@@ -12,37 +12,38 @@ const Post = () => {
   const [address, setAddress] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
   const [price, setPrice] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Apartment");
 
   const requestStatus = useSelector((state) => state.status);
   const dispatch = useDispatch();
 
   const handleImageUpload = () => {
-    // const data = new FormData();
-    // data.append("file", image)
-    // data.append("upload_preset", "10antapp")
-    // data.append("cloud_name","dqlkuatge")
-    // fetch("https://api.cloudinary.com/v1_1/dqlkuatge/image/upload",{
-    //   method:"post",
-    //   body: data
-    // })
-    // .then(resp => resp.json())
-    // .then(data => {
-    //    setUrl(data.url)
-    //    handleClick();
-    // })
-    // .catch(err => console.log(err))
-    handleClick();
+    const data = new FormData();
+    data.append("file", image)
+    data.append("upload_preset", "10antapp")
+    data.append("cloud_name","dqlkuatge")
+    fetch("https://api.cloudinary.com/v1_1/dqlkuatge/image/upload",{
+      method:"post",
+      body: data
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      setUrl(data.url)
+    })
+    .catch(err => console.log(err))
   }
 
+  useEffect(() => {
+    handleClick();
+  }, [url])
+
   const handleClick = () => {
-    console.log('clicked');
     const content = {
       image: url.trim(),
       price: price.trim(),
       address: address.trim(),
       houseNumber: houseNumber.trim(),
-      type: type.trim(),
+      type: type,
       available: true
     }
     dispatch(PostAction(content));
@@ -76,7 +77,8 @@ const Post = () => {
               <label htmlFor="" className=" w-100 h4">Type</label>
               <select name="type" id="type" className= " form-select" onChange={(e)=> {
                 setType(e.target.value);
-              }}>
+                e.value = e.target.value
+              }} >
                 <option value="Apartment">Apartment</option>
                 <option value="Guesthouses">Guesthouses</option>
                 <option value="Condos">Condos</option>

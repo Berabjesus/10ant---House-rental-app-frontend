@@ -1,6 +1,7 @@
 import { setStatusToLoading, setStatusToSuccess, setStatusToError } from './statusAction';
 import {getToken} from '../../helpers/tokenHandler'
 import {POST_SUCCESS} from '../../store/types'
+import { TabContent } from 'react-bootstrap';
 
 const postSuccess = () => ({
   type: POST_SUCCESS,
@@ -8,7 +9,8 @@ const postSuccess = () => ({
 
 export const PostAction = (content) => (dispatch) => {
   dispatch(setStatusToLoading());
-  fetch('http://localhost:9090/10Ant/v1/accomodation', {
+  console.log(content);
+  fetch('http://localhost:9090/10Ant/v1/accommodation', {
     method: 'POST',
     mode: 'cors',
     headers: {
@@ -20,7 +22,6 @@ export const PostAction = (content) => (dispatch) => {
   })
   .then((response) => {
     if (!response.ok) {
-      console.log(response);
       response.json().then(data => {
         dispatch(setStatusToError(data.message));
       })

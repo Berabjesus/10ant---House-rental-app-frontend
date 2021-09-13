@@ -44,9 +44,9 @@ export const login = (credentials) => (dispatch) => {
         username,
         token: data.token
       }
+      setCredentials(username, data.token)
       dispatch(authSuccess(newUserData));
       dispatch(setStatusToSuccess());
-      setCredentials(username, data.token)
     })
     .catch((error) => {
       return false;
