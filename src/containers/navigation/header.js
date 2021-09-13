@@ -40,7 +40,7 @@ const Header = () => {
       <nav className="bg-black ">
         <div className="container py-1">
           <ul className=" d-flex justify-content-between text-white w-50 font_rw">
-            <li><a href="#" className="pb-1 subheader_link" >Home</a></li>
+            <li><Link to="/" className="pb-1 subheader_link" >Home</Link></li>
             <li className="grid"><a href="#" className="pb-1 subheader_link" >Invoices</a>
             </li>
             <li><a href="#" className="pb-1 subheader_link" >About</a>

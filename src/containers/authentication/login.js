@@ -8,6 +8,7 @@ import Common from '../../components/authentication/common'
 import Index from '../accommodation'
 import LoadingIcon from '../../components/common/loadingIcon';
 import styles from '../../components/authentication/common.module.css'
+import {getUsername} from '../../helpers/tokenHandler'
 
 const Login = () => {
 
@@ -53,7 +54,7 @@ const Login = () => {
     if(!authStatus.isLoggedIn)
       SetAuthenticationState()
     return (
-      <Redirect to={`/user/${authStatus.username}`} />
+      <Redirect to={`/user/${getUsername()}`} />
     )
   }
   return (

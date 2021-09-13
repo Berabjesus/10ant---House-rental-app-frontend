@@ -12,9 +12,10 @@ const Home = () => {
   const authStatus = useSelector((state) => state.authentication);
   const dispatch = useDispatch();
 
-  if (IsLoggedIn() || authStatus.isLoggedIn && authStatus.token) {
-    if(!authStatus.isLoggedIn)
-    dispatch(authSuccess(IsLoggedIn()));
+  if (IsLoggedIn() && authStatus.isLoggedIn && authStatus.token) {
+    // if(!authStatus.isLoggedIn)
+    // dispatch(authSuccess(IsLoggedIn()));
+    console.log(authStatus.username);
     return <Redirect to={`/user/${authStatus.username}`} />;
   }
 

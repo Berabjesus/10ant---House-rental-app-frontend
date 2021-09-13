@@ -11,7 +11,7 @@ const Index = () => {
   const location = useLocation();
   const current_dir = location.pathname
   const match_dir =`/user/${userName()}`;
-
+  console.log(userName());
   if (current_dir !== match_dir) {
     return (
       < Redirect to = "/error" />

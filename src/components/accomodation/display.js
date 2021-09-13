@@ -10,81 +10,7 @@ import LoadingIcon from '../../components/common/loadingIcon';
 import {displayAction} from '../../store/actions/displayAction';
 
 const Display = () => {
-  const itemNumber = [{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 400,
-    rating: 0,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 700,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 1200,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 400,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 700,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 1200,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 400,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 700,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  },{
-    type: 'apartment',
-    address: 'Iowa',
-    price: 1200,
-    rating: 3,
-    image: test,
-    description : 'skldflk jkldj klsdklf jsdjkf kljsdlkfj ',
-    uploadedBy: 'Berekt'
-  }];
 
-  const arr = []
   const requestStatus = useSelector((state) => state.status);
   const content =  useSelector((state) => state.content);
   const [arrayContent, setarrayContent] = useState(null)
@@ -109,9 +35,10 @@ const Display = () => {
     <div className=" d-flex mt-4 flex-wrap">
       {
         arrayContent.map(item => {
+          console.log(item);
           return (
             <div className={`col-1 mb-3 mx-2 flex-grow-1 d-flex flex-column ${styles.figure}`}>
-              <Link to="/view/12" className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
+              <Link to={`/view/${item.id}`}className={`flex-grow-1 position-relative mx-0 px-0 d-flex flex-column ${styles.fig_btn}`}>
                 <div className={`p-2 font_rw d-flex flex-column text-start w-100 h-100 ${styles.img_description}`}>
                   <h4 className="border-bottom border-dark border-2">{item.type[0].toUpperCase() + item.type.slice(1).toLowerCase()}</h4>
                   <small className="text-dark">Posted by <ins className=" text-decoration-none fw-bold">{item.uploadedBy}</ins></small>

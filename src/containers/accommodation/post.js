@@ -4,7 +4,7 @@ import Header from '../navigation/header';
 import {SetAuthenticationState} from '../../helpers/accessControl'
 import LoadingIcon from '../../components/common/loadingIcon';
 import {PostAction} from '../../store/actions/postAction'
-
+import {getUsername} from '../../helpers/tokenHandler'
 const Post = () => {
   SetAuthenticationState()
   const [image, setImage ] = useState("");
@@ -47,7 +47,8 @@ const Post = () => {
       address: address.trim(),
       houseNumber: houseNumber.trim(),
       type: type,
-      available: true
+      available: true,
+      username: getUsername()
     }
     dispatch(PostAction(content));
   }
