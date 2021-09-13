@@ -69,7 +69,6 @@ export const signup = (credentials, history) => (dispatch) => {
   })
     .then((response) => {
       if (!response.ok) {
-        console.log(response);
         response.json().then(data => {
           dispatch(setStatusToError(data.message));
         })
@@ -79,17 +78,15 @@ export const signup = (credentials, history) => (dispatch) => {
         return response.json()
     })
     .then((data) => {
-      console.log('eterter');
-      console.log(data.token);
       const decodedToken = jwt_decode(data.token);
       const username = decodedToken.aud;
       const newUserData = {
         username,
         token: data.token
       }
+      setCredentials(username, data.token)
       dispatch(authSuccess(newUserData));
       dispatch(setStatusToSuccess());
-      setCredentials(username, data.token)
     })
     .catch((error) => {
       console.log(error);

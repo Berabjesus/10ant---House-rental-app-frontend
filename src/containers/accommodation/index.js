@@ -10,7 +10,7 @@ const Index = () => {
   const authStatus = useSelector((state) => state.authentication);
   const location = useLocation();
   const current_dir = location.pathname
-  const match_dir = `/user/${userName()}`
+  const match_dir =`/user/${userName()}`;
 
   if (current_dir !== match_dir) {
     return (

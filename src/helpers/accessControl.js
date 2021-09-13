@@ -26,6 +26,5 @@ export const SetAuthenticationState = () => {
 }
 
 export const userName = () => {
-  // return jwt_decode(getToken()).aud
-  return jwt_decode(getToken()).aud
+  return getToken() ? jwt_decode(getToken()).aud : null
 }
