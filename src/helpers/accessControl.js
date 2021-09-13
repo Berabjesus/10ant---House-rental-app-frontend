@@ -1,11 +1,12 @@
-import {getToken, setCredentials} from './tokenHandler'
+import {getToken, setCredentials, getUsername} from './tokenHandler'
 import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from 'react-redux';
 import {authSuccess} from '../store/actions/authAction';
 
+
 export const IsLoggedIn = () => {
   if (getToken()) {
-    let id = (jwt_decode(getToken())).aud;
+    let id = userName();
     const data = {
       username: id,
       token: getToken()
@@ -19,8 +20,12 @@ export const IsLoggedIn = () => {
 export const SetAuthenticationState = () => {
   const dispatch = useDispatch();
   if (IsLoggedIn()) {
-    console.log("hghjkhjkhk");
     setCredentials(IsLoggedIn().username, IsLoggedIn().token)
     dispatch(authSuccess(IsLoggedIn()));
   }
+}
+
+export const userName = () => {
+  // return jwt_decode(getToken()).aud
+  return jwt_decode(getToken()).aud
 }

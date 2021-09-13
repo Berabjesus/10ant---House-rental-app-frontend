@@ -14,7 +14,6 @@ export const logout = () => ({
 
 
 export const login = (credentials) => (dispatch) => {
-  console.log(credentials);
   dispatch(setStatusToLoading());
   fetch('http://localhost:9090/10Ant/v1/login', {
     method: 'POST',
@@ -57,6 +56,8 @@ export const login = (credentials) => (dispatch) => {
 
 export const signup = (credentials, history) => (dispatch) => {
   dispatch(setStatusToLoading());
+  console.log(credentials);
+  console.log(JSON.stringify(credentials));
   fetch('http://localhost:9090/10Ant/v1/register', {
     method: 'POST',
     mode: 'cors',
@@ -75,27 +76,21 @@ export const signup = (credentials, history) => (dispatch) => {
         .catch(console.error);
           throw new Error("Error authAct -- 34");
       }
-
-      if(response.ok){
-        dispatch(setStatusToSuccess());
-        dispatch(authSuccess({username: credentials.username,
-        token: null}))
-        history.push("/login")
-      }
-      // return response.text()
+        return response.json()
     })
-    // .then((response) => {
-    //   console.log('success');
-    //   response.json().then(data => {
-    //     // dispatch(authSuccess(data))
-    //     dispatch(setStatusToSuccess());
-    //     // setCredentials(data.username, data.token)
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     throw new Error("Error authAct -- 34");
-    //   })
-    // })
+    .then((data) => {
+      console.log('eterter');
+      console.log(data.token);
+      const decodedToken = jwt_decode(data.token);
+      const username = decodedToken.aud;
+      const newUserData = {
+        username,
+        token: data.token
+      }
+      dispatch(authSuccess(newUserData));
+      dispatch(setStatusToSuccess());
+      setCredentials(username, data.token)
+    })
     .catch((error) => {
       console.log(error);
     });

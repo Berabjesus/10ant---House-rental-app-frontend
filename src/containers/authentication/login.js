@@ -5,7 +5,7 @@ import {authSuccess} from '../../store/actions/authAction'
 import {login} from '../../store/actions/authAction'
 import {IsLoggedIn, SetAuthenticationState} from '../../helpers/accessControl'
 import Common from '../../components/authentication/common'
-import Index from '../accomodation/'
+import Index from '../accommodation'
 import LoadingIcon from '../../components/common/loadingIcon';
 import styles from '../../components/authentication/common.module.css'
 
@@ -43,8 +43,6 @@ const Login = () => {
     }
     dispatch(login(credentials));
   }
-
-
 
   if (requestStatus.loading){
     return (

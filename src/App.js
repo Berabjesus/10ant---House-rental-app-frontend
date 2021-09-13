@@ -6,9 +6,9 @@ import Login from './containers/authentication/login';
 import Role from './containers/authentication/role';
 import OwnerSignUp from './containers/authentication/ownerSignup';
 import TenantSignUp from './containers/authentication/tenantSignup';
-import Index from './containers/accomodation'
-import View from './containers/accomodation/view';
-import Post from './containers/accomodation/post';
+import Index from './containers/accommodation'
+import View from './containers/accommodation/view';
+import Post from './containers/accommodation/post';
 import Error from './components/common/error'
 import store from './store/store';
 

@@ -6,7 +6,7 @@ import {signup} from '../../store/actions/authAction'
 import {IsLoggedIn, SetAuthenticationState} from '../../helpers/accessControl'
 import LoadingIcon from '../../components/common/loadingIcon';
 import Common from '../../components/authentication/common'
-import Index from '../accomodation/'
+import Index from '../accommodation'
 import styles from '../../components/authentication/common.module.css'
 
 const Signup = ({role}) => {
@@ -47,7 +47,11 @@ const Signup = ({role}) => {
       address,
       phoneNumber,
       email,
-      role,
+      roles: [
+        {
+            "role": `${role}`
+        }
+      ],
       nationality,
       username,
       password: password.trim(),

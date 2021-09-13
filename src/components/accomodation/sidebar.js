@@ -21,21 +21,6 @@ const Sidebar = () => {
                 <div className="form-check me-4 pb-2 mb-2">
                   <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Vacation Homes</label>
                 </div>
-                <div className="form-check me-4 pb-2 mb-2">
-                  <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Apartments</label>
-                </div>
-                <div className="form-check me-4 pb-2 mb-2">
-                  <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Guesthouses</label>
-                </div>
-                <div className="form-check me-4 pb-2 mb-2">
-                  <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Condos</label>
-                </div>
-                <div className="form-check me-4 pb-2 mb-2">
-                  <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Townhomes</label>
-                </div>
-                <div className="form-check me-4 pb-2 mb-2">
-                  <label className=""><input className=" form-check-input checkbox" type="checkbox" name="checkbox" />Vacation Homes</label>
-                </div>
               </div>
           </div>
           <div className=" sidebar_sections flex-grow-1">
