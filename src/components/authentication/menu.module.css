@@ -1,0 +1,49 @@
+.form_box {
+  height: 500px;
+  width: 400px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 0px 15px 30px rgba(14, 1, 24, 0.4);
+}
+
+.signup_menu {
+  width: 80%;
+}
+
+.signup_menu_anchor {
+  height: 100%;
+}
+
+.menu_text_container {
+  transition: all 0.2s linear;
+}
+
+.menu_text_container:hover {
+  background: rgba(0, 0, 0, 0.863);
+}
+
+.menu_text_container:hover > * {
+  color: white;
+}
+
+.menu_items {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.menu_left {
+  background: url('../../assets/png/tenant.png') center center / cover;
+}
+
+.menu_right {
+  background: url('../../assets/png/owner.png') center center / cover;
+}
+
+@media screen and (max-width: 768px) {
+
+  .signup_menu_anchor {
+    height: 50%;
+  }
+}
